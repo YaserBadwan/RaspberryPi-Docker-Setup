@@ -4,6 +4,9 @@ set -euo pipefail
 # 1) Pre-req: sudo session (ask once)
 sudo -v
 
+echo "[0/6] Removing old Docker versions if present..."
+sudo apt remove -y docker docker.io docker-compose docker-doc podman-docker containerd runc 2>/dev/null || true
+
 echo "[1/6] Installing prerequisites..."
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
